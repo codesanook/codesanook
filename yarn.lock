@@ -234,10 +234,10 @@
   resolved "https://registry.yarnpkg.com/@bufbuild/protobuf/-/protobuf-2.2.5.tgz#8e82c0af292113b4a89f8b658c71c4636c8d2e36"
   integrity sha512-/g5EzJifw5GF8aren8wZ/G5oMuPoGeS6MQD3ca8ddcvdXR5UELUfdTZITCGNhNXynY/AYl3Z4plmxdj/tRl/hQ==
 
-"@dotnetthailand/minimal-portfolio-theme@^0.0.0":
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@dotnetthailand/minimal-portfolio-theme/-/minimal-portfolio-theme-0.0.0.tgz#20cf775b88d937e6d956a53857f24bc5c997877b"
-  integrity sha512-lA3tAo3DQ97k/NMwaDJ5tTwnFlJMAbes2mmf5+dfLwdcXHigS2IR51clxmyyrmMBRspURjAWMYdu0BK3LqodDQ==
+"@dotnetthailand/minimal-portfolio-theme@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@dotnetthailand/minimal-portfolio-theme/-/minimal-portfolio-theme-0.0.1.tgz#792ad49ae303afebbe40d181469e387b147f7064"
+  integrity sha512-exTVA1Lojxy58R5IHk1n9Pyw9UINvk5t8bugAzM1uYncJhZPIqkBXAMRPx/FiWkeRESqZTGyuV67nh0EufuUkg==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^6.7.2"
     "@fortawesome/free-solid-svg-icons" "^6.7.2"
