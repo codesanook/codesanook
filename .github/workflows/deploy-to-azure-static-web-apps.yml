@@ -1,0 +1,38 @@
+# file name:
+# Learn more about Azure/static-web-apps-deploy
+# https://docs.microsoft.com/en-us/azure/static-web-apps/github-actions-workflow
+name: Deploy to Azure Static Web Apps
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build_and_deploy_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the latest source code from ${{ github.sha }} commit
+        # https://github.com/actions/checkout/releases
+        uses: actions/checkout@v4
+
+      - name: Use Node.js version ${{env.NODE_VERSION }}
+        # https://github.com/actions/setup-node/releases
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      # Yarn has already installed https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md
+      - name: Build the project to ${{ env.PACKAGE_PATH }} folder
+        run: |
+          yarn install
+          yarn run build
+
+      - name: Skip building and deploy files in dist folder
+        # https://github.com/Azure/static-web-apps-deploy/releases
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          action: 'upload'
+          skip_app_build: true
+          app_location: dist
+
+
