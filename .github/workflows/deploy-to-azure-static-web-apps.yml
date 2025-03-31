@@ -6,9 +6,14 @@ on:
   push:
     branches:
       - main
+env:
+  NODE_VERSION: 22.x
+  PACKAGE_PATH: dist
+
 jobs:
   build_and_deploy_job:
-    runs-on: ubuntu-latest
+    # https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout the latest source code from ${{ github.sha }} commit
         # https://github.com/actions/checkout/releases
@@ -26,13 +31,13 @@ jobs:
           yarn install
           yarn run build
 
-      - name: Skip building and deploy files in dist folder
+      - name: Skip building and deploy files in ${{ env.PACKAGE_PATH }} folder
         # https://github.com/Azure/static-web-apps-deploy/releases
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           action: 'upload'
           skip_app_build: true
-          app_location: dist
+          app_location: ${{ env.PACKAGE_PATH }}
 
 
